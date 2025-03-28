@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Message Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .notification {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff9800;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        .notification button {
+            background: none;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>New Message Alert System</h2>
+    <button onclick="receiveMessage()">Simulate New Message</button>
+
+    <div id="notification" class="notification">
+        📩 New message received!
+        <button onclick="closeNotification()">X</button>
+    </div>
+
+    <audio id="notificationSound" src="https://www.fesliyanstudios.com/play-mp3/4382"></audio>
+
+    <script>
+        function receiveMessage() {
+            let notification = document.getElementById("notification");
+            let sound = document.getElementById("notificationSound");
+
+            notification.style.display = "block"; // Show notification
+            sound.play(); // Play sound alert
+
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                notification.style.display = "none";
+            }, 5000);
+        }
+
+        function closeNotification() {
+            document.getElementById("notification").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
